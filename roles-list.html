@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Roles List{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Roles List</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">User Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Roles List</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-center">
+              <a href="{% url 'role-form' %}"><button class="btn btn-primary btn-sm"><strong><i class="ri-add-line"></i> Add New</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="basic-datatables" class="display table table-hover table-bordered table-head-bg-light">
+                <thead>
+                  <tr>
+                    <th colspan="12" class="text-center bg-light"><strong>ROLES LIST</strong></th>
+                  </tr>
+                  <tr class="text-center">
+                    <th>#</th>
+                    <th>Role Code</th>
+                    <th>Role Name</th>
+                    <th>Role Status</th>
+                    <th>Added Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td>cc_001</td>
+                    <td>Cash Collector</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>22 July 2026</td>
+                    <td>
+                      <a href="{% url 'role-view' %}"><button class="btn btn-info btn-sm mb-1">View</button></a>
+                      <a href="{% url 'role-form' %}"><button class="btn btn-secondary btn-sm mb-1">Edit</button></a>
+                    </td>
+                  </tr>                          
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function () {
+  $("#basic-datatables").DataTable({});
+
+  $("#multi-filter-select").DataTable({
+    pageLength: 10,
+    initComplete: function () {
+      this.api()
+        .columns()
+        .every(function () {
+          var column = this;
+          var select = $(
+            '<select class="form-select"><option value=""></option></select>'
+          )
+            .appendTo($(column.footer()).empty())
+            .on("change", function () {
+              var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+              column
+                .search(val ? "^" + val + "$" : "", true, false)
+                .draw();
+            });
+
+          column
+            .data()
+            .unique()
+            .sort()
+            .each(function (d, j) {
+              select.append(
+                '<option value="' + d + '">' + d + "</option>"
+              );
+            });
+        });
+    },
+  });
+
+  // Add Row
+  $("#add-row").DataTable({
+    pageLength: 10,
+  });
+});
+</script>
+{% endblock %}

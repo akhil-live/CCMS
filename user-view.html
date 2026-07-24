@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}User View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">User </h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">User Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'users-list' %}">
+            <span class="op-7">Users</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">User</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'users-list' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="employeeName">Employee Name</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Rahul Sharma</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="employeeCode">Employee Code</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">SS-12345</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobile">Mobile No.</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">9876543210</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobile">Email ID</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">rahul123@gmail.com</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="username">Username</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Rahul_12345</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="password">Password</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">*****</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="department">Department</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">UD Tax</p>
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="centre">Collection Centre</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Jagatpura</p> 
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="role">User Role</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Cash Collector</p>  
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">User Status</label><i class="ri-asterisk"></i>
+                    <br>
+                    <p class="fw-bold">Active</p>
+                  </div>                     
+                </div>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+{% endblock %}

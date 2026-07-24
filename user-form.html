@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}User Form{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">User Form </h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">User Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'users-list' %}">
+            <span class="op-7">Users</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">User Form</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'users-list' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+            <form action="">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="employeeName">Employee Name</label><i class="ri-asterisk"></i>
+                    <input type="text" class="form-control" id="employeeName" name="employeeName" value="" placeholder="Enter Employee Name" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="employeeCode">Employee Code</label><i class="ri-asterisk"></i>
+                    <input type="text" class="form-control" id="employeeCode" name="employeeCode" value="" placeholder="Enter Employee Code" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobile">Mobile No.</label><i class="ri-asterisk"></i>
+                    <input type="number" class="form-control" id="mobile" name="mobile" value="" placeholder="99xxxxxxxx" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobile">Email ID</label><i class="ri-asterisk"></i>
+                    <input type="email" class="form-control" id="email" name="email" value="" placeholder="axxxx@xxxxx.com" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="username">Username</label><i class="ri-asterisk"></i>
+                    <input type="text" class="form-control" id="username" name="username" value="" placeholder="Enter username" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="password">Password</label><i class="ri-asterisk"></i>
+                    <input type="password" class="form-control" id="password" name="password" value="" placeholder="Enter password" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="department">Department</label><i class="ri-asterisk"></i>
+                      <select class="form-select" id="department" name="department" required>
+                        <option value="">Select</option>
+                        <option value="">UD Tax</option>
+                        <option value="">Advertisement Tax</option>
+                        <option value="">House Tax</option>
+                      </select>    
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="centre">Collection Centre</label><i class="ri-asterisk"></i>
+                      <select class="form-select" id="centre" name="centre" required>
+                        <option value="">Select</option>
+                        <option value="">Sanganer</option>
+                        <option value="">Mansarovar</option>
+                        <option value="">Malviya Nagar </option>
+                        <option value="">Bagru </option>
+                      </select>    
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="role">User Role</label><i class="ri-asterisk"></i>
+                      <select class="form-select" id="role" name="role" required>
+                        <option value="">Select</option>
+                        <option value="">Cash Collector</option>
+                        <option value="">Field Executive</option>
+                        <option value="">Manager</option>
+                        <option value="">Accountant</option>
+                        <option value="">Admin</option>
+                        <option value="">Super Admin</option>
+                      </select>    
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">User Status</label><i class="ri-asterisk"></i>
+                    <br>
+                    <div class="selectgroup selectgroup-warning selectgroup-pills">
+                      <label class="selectgroup-item">
+                        <input type="radio" name="status" value="1" class="selectgroup-input" id="check1" required>
+                        <span class="selectgroup-button me-2" for="check1">Active</span>
+                      </label>
+                      <label class="selectgroup-item">
+                        <input type="radio" name="status" value="0" class="selectgroup-input" id="check2">
+                        <span class="selectgroup-button" for="check2">Inactive</span>
+                      </label>
+                    </div>
+                  </div>                     
+                </div>
+              </div>
+              <div class="d-print-none">
+                  <p class="text-start p-3">
+                    <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Submit</strong></button>
+                  </p>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+{% endblock %}

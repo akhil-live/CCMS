@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Role{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Role</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">User Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'roles-list' %}">
+            <span class="op-7">Roles</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Role</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'roles-list' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="roleName">Role Name</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Cash Collector</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="roleCode">Role Code</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">cc_001</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Select Role Status</label><i class="ri-asterisk"></i>
+                    <br>
+                    <p class="fw-bold">Active</p>
+                  </div>                     
+                </div>
+              </div>
+              <div class="p-2">
+                <label for="roleName">Permissions</label><i class="ri-asterisk"></i>
+              </div>
+              <div class="table-responsive p-2">
+                <table id="basic-datatables" class="display table table-hover table-bordered">
+                  <thead>
+                    <tr class="text-center table-primary">
+                      <th>MENU</th>
+                      <th>VIEW</th>
+                      <th>ADD</th>
+                      <th>EDIT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-info fw-bold text-center">
+                      <td colspan="4">User Management</td>
+                    </tr>
+                    <tr class="text-center">
+                      <td class="subModuleName">Users</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                    </tr>                          
+                    <tr class="text-center">
+                      <td class="subModuleName">Roles</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                    </tr>  
+                    <tr class="table-info fw-bold text-center">
+                      <td colspan="4">Masters</td>
+                    </tr>                        
+                    <tr class="text-center">
+                      <td class="subModuleName">Department Master</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Collection Centre Master</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Payment Mode Master</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="table-info fw-bold text-center">
+                      <td colspan="4">Collections</td>
+                    </tr>                        
+                    <tr class="text-center">
+                      <td class="subModuleName">New Collection</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Collection History</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Pending Collection</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Daily Cash Closing</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Pay-in Slip</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Reconciliation</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Cancel Collection</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>
+                    <tr class="table-info fw-bold text-center">
+                      <td colspan="4">Receipt Management</td>
+                    </tr>                        
+                    <tr class="text-center">
+                      <td class="subModuleName">Generate Receipt</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Reprint Receipt</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Receipt History</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                      <td>✔</td>
+                    </tr>  
+                    <tr class="table-info fw-bold text-center">
+                      <td colspan="4">Reports</td>
+                    </tr>                        
+                    <tr class="text-center">
+                      <td class="subModuleName">Daily collection Report</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Collection Summary</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">User-wise Collection Report</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Payment Mode Report</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Collection Centre Report</td>
+                      <td>✔</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                    <tr class="text-center">
+                      <td class="subModuleName">Reconciliation Report</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                      <td>✖</td>
+                    </tr>  
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+{% endblock %}
