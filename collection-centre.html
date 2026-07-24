@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Collection Centre{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Collection Centre Master</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Masters</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collection Centre Master</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-center">
+              <a href="{% url 'collection-centre-form' %}"><button class="btn btn-primary btn-sm"><strong><i class="ri-add-line"></i> Add New</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="basic-datatables" class="display table table-hover table-bordered table-head-bg-light">
+                <thead>
+                  <tr>
+                    <th colspan="14" class="text-center bg-light"><strong>COLLECTION CENTRE LIST</strong></th>
+                  </tr>
+                  <tr class="text-center">
+                    <th>#</th>
+                    <th>Centre Code</th>
+                    <th>Centre Name</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Landmark</th>
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>Contact Person</th>
+                    <th>Mobile</th>
+                    <th>Status</th>
+                    <th>Added Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td>CC001</td>
+                    <td>Civil Lines Counter</td>
+                    <td>UD Tax</td>
+                    <td>Civil Lines Near Metro Station</td>
+                    <td>Lotus Building</td>
+                    <td>Jaipur</td>
+                    <td>302006</td>
+                    <td>Anil Singh</td>
+                    <td>9876543210</td>
+                    <td><span class="badge badge-success">Active</span></td>                            
+                    <td>23 July 2026</td>
+                    <td>
+                      <a href="{% url 'collection-centre-view' %}"><button class="btn btn-info btn-sm">View</button></a>
+                      <a href="{% url 'collection-centre-form' %}"><button class="btn btn-secondary btn-sm">Edit</button></a>
+                    </td>
+                  </tr>                          
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function () {
+  $("#basic-datatables").DataTable({});
+
+  $("#multi-filter-select").DataTable({
+    pageLength: 10,
+    initComplete: function () {
+      this.api()
+        .columns()
+        .every(function () {
+          var column = this;
+          var select = $(
+            '<select class="form-select"><option value=""></option></select>'
+          )
+            .appendTo($(column.footer()).empty())
+            .on("change", function () {
+              var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+              column
+                .search(val ? "^" + val + "$" : "", true, false)
+                .draw();
+            });
+
+          column
+            .data()
+            .unique()
+            .sort()
+            .each(function (d, j) {
+              select.append(
+                '<option value="' + d + '">' + d + "</option>"
+              );
+            });
+        });
+    },
+  });
+
+  // Add Row
+  $("#add-row").DataTable({
+    pageLength: 10,
+  });
+});
+</script>
+{% endblock %}

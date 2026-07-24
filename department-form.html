@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Department Form{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Department Form </h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Masters</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'department-master' %}">
+            <span class="op-7">Department Master</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Department Form</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'department-master' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+            <form action="">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="departmentName">Department Name</label><i class="ri-asterisk"></i>
+                    <input type="text" class="form-control" id="departmentName" name="departmentName" value="" placeholder="Enter Department Name" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="departmentCode">Department Code</label><i class="ri-asterisk"></i>
+                    <input type="text" class="form-control" id="departmentCode" name="departmentCode" value="" placeholder="Enter Department Code" required>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Department Status</label><i class="ri-asterisk"></i>
+                    <br>
+                    <div class="selectgroup selectgroup-warning selectgroup-pills">
+                      <label class="selectgroup-item">
+                        <input type="radio" name="status" value="1" class="selectgroup-input" id="check1" required>
+                        <span class="selectgroup-button me-2" for="check1">Active</span>
+                      </label>
+                      <label class="selectgroup-item">
+                        <input type="radio" name="status" value="0" class="selectgroup-input" id="check2">
+                        <span class="selectgroup-button" for="check2">Inactive</span>
+                      </label>
+                    </div>
+                  </div>                     
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="remark">Remark (Optional)</label>
+                    <textarea id="remark" name="remark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="d-print-none">
+                  <p class="text-start p-3">
+                    <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Submit</strong></button>
+                  </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+{% endblock %}

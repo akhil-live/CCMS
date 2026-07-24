@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Collection Centre View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Collection Centre </h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Masters</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'collection-centre' %}">
+            <span class="op-7">Collection Centre</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Centre</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'collection-centre' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="centreName">Centre Name</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Civil Lines Counter</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="centreCode">Centre Code</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">CC001</p>
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="department">Department</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">UD Tax</p> 
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="address">Address</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Civil Lines Near Metro Station</p> 
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="landmark">Landmark</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Lotus Building</p> 
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="city">City</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Jaipur</p> 
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="pincode">Pincode</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">302006</p> 
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="contactPerson">Contact Person</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">Anil Singh</p> 
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobile">Mobile No.</label><i class="ri-asterisk"></i>
+                    <p class="fw-bold">9876543210</p> 
+                  </div>                 
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Centre Status</label><i class="ri-asterisk"></i>
+                    <br>
+                    <p class="fw-bold">Active</p> 
+                  </div>                     
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+{% endblock %}
