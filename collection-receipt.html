@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Receipt{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Receipt</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Receipt Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Receipt</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">                  
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+              <div class="d-print-none">
+                <p class="text-start">
+                  <button type="submit" class="btn btn-info btn-sm mb-1" onclick="printTable('printableArea')"><strong><i class="ri-printer-line"></i> Print</strong></button>
+                  <button type="submit" class="btn btn-secondary btn-sm mb-1"><strong><i class="ri-download-2-line"></i> Download</strong></button>
+                </p>
+              </div>
+              <div class="row" style="width:205mm;height:auto;margin:auto; padding:8px;" id="printableArea">
+                <div class="table-responsive demandPrintView" style="width:100%; background:#FFFFFF; padding: 4px; border:#0c9fb0 solid 2px;">
+                  <table class="display table table-borderless" width="100%" id="receiptTable">
+                    <tbody>
+                      <tr>
+                        <td style="padding: 0px;">
+                          <div style="float:left; width:100px; padding:1px;  text-align:left; ">
+                            <img src="{% static 'images/logo/logo.png' %}" alt="Logo" width="80">
+                          </div>
+                          <div style="float:right; text-align:right; width:170px; padding:1px; ">
+                          </div>
+                          <div class="text-center" style=" text-align:center; color:#003B5D; line-height:28px;  padding-top:5px; margin: auto;">
+                            <span style="font-weight:bold; font-size:26px">नगर निगम</span>
+                          <br>
+                          <span style="font-size:14px">(नगरपालिका लेखा नियम 1963 के नियम 22,23 और 24(1) के अधीन)</span>
+                          <br>
+                          <span style="font-size:20px; font-weight:bold;">भुगतान रसीद</span>
+                          </div>
+                          
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div>
+                    <table class="display table table-bordered" width="100%">
+                      <tbody>
+                        <tr style="border-top: 1px solid #abafb9">
+                          <td class="fw-bold">उपभोक्ता नंबर</td>
+                          <td class="fw-bold">रसीद क्र.</td>
+                          <td class="fw-bold">रसीद दिनांक</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">98765</td>
+                          <td class="fw-bold">RCT7220246</td>
+                          <td class="fw-bold">July 24, 2026</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">मद</td>
+                          <td class="fw-bold" colspan="3">LICENCE FEE</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">स्वामी / अधिभोगी का नाम</td>
+                          <td class="fw-bold" colspan="3">MADHUR MANGAL </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">सम्पत्ति का पता (Permanent Address)</td>
+                          <td class="fw-bold" colspan="3">KHAJDO KA BASS MANSAROVAR JAIPUR 302020</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">पत्राचार पता (Correspondence Address)</td>
+                          <td class="fw-bold" colspan="3">KHAJDO KA BASS MANSAROVAR JAIPUR 302020</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">मोबाइल न.</td>
+                          <td class="fw-bold" colspan="3">9876543210</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <div>
+                    <table class="display table table-bordered" width="100%">
+                      <tbody>
+                        <tr class="text-center" style="border-top: 1px solid #abafb9">
+                          <td class="fw-bold">Payment Mode</td>
+                          <td class="fw-bold">Reference No.</td>
+                          <td class="fw-bold">Bank Name</td>
+                          <td class="fw-bold">Branch Name</td>
+                          <td class="fw-bold">Transaction Status</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold">CASH</td>
+                          <td class="fw-bold">None</td>
+                          <td class="fw-bold">None</td>
+                          <td class="fw-bold">None</td>
+                          <td class="fw-bold">Success</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div>
+                    <table class="display table table-bordered" width="100%">
+                      <tbody>
+                        <tr class="text-center" style="border-top: 1px solid #abafb9">
+                          <td rowspan="2" class="fw-bold text-start">Payment Duration : 2025-2026</td>
+                          <td colspan="2" class="fw-bold">Payable Amount (₹)</td>
+                          <td colspan="2" class="fw-bold">Received Amount (₹)</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold">Arrears</td>
+                          <td class="fw-bold">Current</td>
+                          <td class="fw-bold">Arrears</td>
+                          <td class="fw-bold">Current</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold text-start">Bill Amount</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">270</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">270</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold text-start">Interest</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">135</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">135</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold text-start">Penalty</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">0.00</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold"></td>
+                          <td class="fw-bold"></td>
+                          <td class="fw-bold"></td>
+                          <td class="fw-bold"></td>
+                          <td class="fw-bold"></td>
+                        </tr>
+                        <tr class="text-center">
+                          <td class="fw-bold">Total Amount (₹)</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">405</td>
+                          <td class="fw-bold">0.00</td>
+                          <td class="fw-bold">405</td>
+                        </tr>
+                        <tr class="text-start">
+                          <td class="fw-bold">Payable Amt.: <span> 405.00</span></td>
+                          <td colspan="4" class="fw-bold">Advance Adjusted : <span> 0.00</span></td>
+                        </tr>
+                        <tr class="text-start">
+                          <td class="fw-bold">Actual Payable Amt. : <span> 405.00</span></td>
+                          <td colspan="4" class="fw-bold">Advance Amount : <span> 0.00</span></td>
+                        </tr>
+                        <tr class="text-start">
+                          <td class="fw-bold">Total Received Amt. : <span> 405.00</span></td>
+                          <td colspan="4" class="fw-bold">Outstanding Amt. (Till Receipt Date).: <span> 0.00</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div>
+                    <table class="display table table-bordered" width="100%">
+                      <tbody>
+                        <tr>
+                          <td colspan="4">
+                            <table class="display table table-borderless" width="100%" style="margin-bottom: 0.5rem;">
+                              <tbody>
+                                <tr class="text-center">
+                                  <td width="33%" style="border-bottom: 0px;">
+                                    केशियर
+                                    <br>
+                                    (कम्प्यूटर से जारी हस्ताक्षर आवश्यक नहीं)	
+                                  </td>
+                                  <td width="33%" style="border-bottom: 0px;">
+                                    <img src="{% static 'images/stamp/sample-stamp.jpg' %}" alt="stamp" width="80" style="margin-top: -10px; margin-bottom: 1px;">
+                                    <br>
+                                    <span>भूल-चूक लेनी देनी</span>
+                                  </td>
+                                  <td width="33%" style="border-bottom: 0px;">
+                                    सम्पत्ति स्वामी/अधिभोगी के हस्ताक्षर एवं नाम
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <div style="border-top: dashed 2px #0c9fb0; position: relative;">
+                    <i class="ri-scissors-line" style="display: flex; position: absolute; margin-top: -9px; left: 8px;"></i>
+                    <i class="ri-scissors-line" style="display: flex; position: absolute; margin-top: -10px; right: 8px; rotate: 180deg;"></i>
+                    <table class="display table table-bordered" width="100%">
+                      <tbody>
+                        <tr>
+                          <td colspan="4">
+                            <table class="display table table-borderless" width="100%" style="margin-bottom: 0.5rem;">
+                              <tbody>
+                                <tr>
+                                  <td colspan="3" class="text-end" style="border-bottom: 0px; font-size: 7px;">
+                                     Tear this slip off as Acknowledgment 
+                                  </td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                  <td colspan="3" style="border-bottom: 0px; height: 50px;">
+                                    Received Receipt No. <strong>RCT7220246</strong> at <span>July 24, 2026, 1:24 p.m.</span> of Rs. <strong> 405.00</strong> against Payment of Fee <strong>98765.</strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="text-start" width="25%" style="border-bottom: 0px; font-size: 9px;">
+                                    Issued By CCMS
+                                    <br>
+                                    For Nagar Nigam	
+                                  </td>
+                                  <td class="text-start" width="52%" style="border-bottom: 0px; font-size: 9px; z-index: -1;">
+                                    <img src="{% static 'images/stamp/sample-stamp.jpg' %}" alt="stamp" width="60" style="margin-top: -10px; margin-left: 10px;">
+                                  </td>
+                                  <td class="text-end" width="33%" style="border-bottom: 0px; font-size: 10px;">
+                                    Signature of Recipient
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Generate Receipt{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Generate Receipt</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Receipt Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Generate Receipt</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p>
+        NOTE: Generate receipt for completed transactions if a receipt was not generated during payment.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round"> 
+
+          <div class="card-header d-print-none">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No. <i class="ri-asterisk"></i></label>
+                  <input type="text" class="form-control" id="consumerNo" placeholder="Enter Consumer number">                          
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="billNo">Bill No. <i class="ri-asterisk"></i></label>
+                  <input type="number" class="form-control" id="billNo" placeholder="Enter bill number">                          
+                </div>
+              </div>  
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerName">Consumer Name</label>
+                  <input type="text" class="form-control" id="consumerName" placeholder="Enter consumer name">                          
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobileNo">Mobile No.</label>
+                  <input type="number" class="form-control" id="mobileNo" placeholder="Enter mobile number">                          
+                </div>
+              </div>                        
+                                    
+            </div>
+            <div class="col-12 py-4 text-center">
+                <a href="#"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button></a>
+            </div>
+                
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h4 class="text-info">Transaction Summary</h4>
+              <p>Transaction details are displayed below:</p>
+              <div class="table-responsive">
+                <table class="display table table-bordered table-head-bg-light">
+                  <tbody>
+                    <tr>
+                      <td class="text-dark"><strong>Consumer No.</strong></td>
+                      <td class="text-dark"><strong>987654</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Consumer Name</td>
+                      <td class="text-dark">MADHUR MANGAL</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Father's Name</td>
+                      <td class="text-dark">SANJAY MANGAL</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Mobile No.</td>
+                      <td class="text-dark">9876543210</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Bill Number</td>
+                      <td class="text-dark">BILL/74/472148</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Transaction Date & Time</td>
+                      <td class="text-dark">24-07-2026</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Reference No.</td>
+                      <td class="text-dark">RCT7220246</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Payment Mode</td>
+                      <td class="text-dark">Cash</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark">Transaction Amount (₹)</td>
+                      <td class="text-dark">405</td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark"><strong>Transaction Status</strong></td>
+                      <td class="text-dark"><strong>Success</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="text-dark"><strong>Receipt Status</strong></td>
+                      <td class="text-dark"><strong>Not Generated</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="d-print-none">
+                <p class="text-center pt-2">
+                  <a href="{% url 'collection-receipt' %}"><button type="submit" class="btn btn-secondary btn-sm mb-1" name="submit" id="submit"><strong>Click to Generate Receipt</strong></button></a>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Reprint Receipt{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Reprint Receipt</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Receipt Management</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Reprint Receipt</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">                  
+          <div class="card-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                    <input type="text" class="form-control" id="consumerNo" placeholder="Enter Consumer number">                          
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="consumerName">Consumer Name</label>
+                    <input type="text" class="form-control" id="consumerName" placeholder="Enter consumer name">                          
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobileNo">Mobile No.</label>
+                    <input type="number" class="form-control" id="mobileNo" placeholder="Enter mobile number">                          
+                  </div>
+                </div>                        
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="billNo">Bill No.</label>
+                    <input type="number" class="form-control" id="billNo" placeholder="Enter bill number">                          
+                  </div>
+                </div>                        
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="receiptNo">Receipt No.</label>
+                    <input type="number" class="form-control" id="receiptNo" placeholder="Enter receipt number">                          
+                  </div>
+                </div>                        
+              </div>
+              <div class="col-12 py-4 text-center">
+                  <a href="{% url 'receipt-records' %}"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button></a>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,461 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Collection Payment Entry{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Collection Payment Entry </h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collections</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'pending-collection-search' %}">
+            <span class="op-7">Collection Pending</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collection Payment Entry</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'pending-collection-search' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr><th colspan="6" class="text-center">Basic Details</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr>
+                        <td>Consumer No.</td>
+                        <td class="fw-bold">98765</td>
+                        <td>Consumer Name</td>
+                        <td class="fw-bold">MADHUR MANGAL</td>
+                        <td>Father's Name</td>
+                        <td colspan="3" class="fw-bold">SANJAY MANGAL</td>
+                      </tr>
+                      <tr>
+                        <td>Mobile No.</td>
+                        <td colspan="3" class="fw-bold">9876543210</td>
+                        <td>Email ID</td>
+                        <td colspan="3" class="fw-bold">madhur@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Permanent Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                        <td>Communication Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 class="pb-1"><strong>Arrear Dues Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th colspan="6">Bill Summary (Previous)</th>
+                      </tr>
+                      <tr class="text-center">
+                        <th>Bill Number</th>
+                        <th>Demand Year</th>
+                        <th>Bill Amount (₹)</th>
+                        <th>Interest (₹)</th>
+                        <th>Total (₹)</th>
+                        <th>Payment Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>BILL/74/472146</td>
+                        <td>2024</td>
+                        <td>270</td>
+                        <td>135</td>
+                        <td>405</td>
+                        <td><span class="badge badge-danger">Due</span></td>
+                      </tr>
+                      <tr class="text-center">
+                        <td>BILL/74/472147</td>
+                        <td>2025</td>
+                        <td>270</td>
+                        <td>135</td>
+                        <td>405</td>
+                        <td><span class="badge badge-danger">Due</span></td>
+                      </tr>
+                      <tr class="text-center">
+                        <td colspan="2" class="fw-bold">Total (₹)</td>
+                        <td class="fw-bold">540</td>
+                        <td class="fw-bold">270</td>
+                        <td class="fw-bold">810</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 class="pb-1"><strong>Current Year Dues Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th colspan="6">Bill Summary (Current Year)</th>
+                      </tr>
+                      <tr class="text-center">
+                        <th>Bill Details</th>
+                        <th>Demand Year</th>
+                        <th>Bill Amount (₹)</th>
+                        <th>Interest (₹)</th>
+                        <th>Total (₹)</th>
+                        <th>Payment Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>BILL/74/472148</td>
+                        <td>2026</td>
+                        <td>270</td>
+                        <td>135</td>
+                        <td>405</td>
+                        <td><span class="badge badge-danger">Due</span></td>
+                      </tr>
+                      <tr class="text-center">
+                        <td colspan="2" class="fw-bold">Total (₹)</td>
+                        <td class="fw-bold">270</td>
+                        <td class="fw-bold">135</td>
+                        <td class="fw-bold">405</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5 class="pb-1"><strong>Bill Dues as on Date</strong></h5>
+                  <table class="display table table-bordered my-4" width="100%">
+                    <tbody>
+                      <tr>
+                        <td class="fw-bold">Arrears Bill (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">540</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Arrears Bill Interest (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">270</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Current Bill (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">270</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Arrears Bill Interest (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">135</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Cheque Bounce Penalty (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">0.0</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold text-primary">Total Amount to Pay (₹)</td>
+                        <td class="text-center text-primary">:</td>
+                        <td class="fw-bold text-end text-primary">1215</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5 class="pb-1"><strong>Payable Amount</strong></h5>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <div class="col-md-6">
+                          <strong>
+                            Net Amount Pay (₹)<i class="ri-asterisk"></i>
+                          </strong>
+                        </div>
+                        <div class="col-md-6 text-start">
+                          <input type="number" class="form-control" id="payableAmount" name="payableAmount" value="1215" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <div class="col-md-6">
+                          <strong>
+                            Mobile No. (+91)<i class="ri-asterisk"></i>
+                          </strong>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="number" class="form-control" id="paymentMobileNo" name="paymentMobileNo" value="9876543210" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h5 class="pb-1"><strong>Select Payment Mode</strong></h5>
+                  <div class="row p-2">
+                    <div class="form-group">
+                      <div class="selectgroup selectgroup-primary selectgroup-pills">
+                        <label class="selectgroup-item">
+                          <input type="checkbox" name="status" value="1" class="selectgroup-input" id="check1" required="">
+                          <span class="selectgroup-button" for="check1">Cash</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="checkbox" name="status" value="0" class="selectgroup-input" id="check2">
+                          <span class="selectgroup-button" for="check2">Cheque</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="checkbox" name="status" value="0" class="selectgroup-input" id="check2">
+                          <span class="selectgroup-button" for="check2">Demand Draft</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="checkbox" name="status" value="0" class="selectgroup-input" id="check2">
+                          <span class="selectgroup-button" for="check2">UPI</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="checkbox" name="status" value="0" class="selectgroup-input" id="check2">
+                          <span class="selectgroup-button" for="check2">NEFT</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="checkbox" name="status" value="0" class="selectgroup-input" id="check2">
+                          <span class="selectgroup-button" for="check2">RTGS</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>Cash Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cashDate">Cash Received Date<i class="ri-asterisk"></i></label>
+                        <input type="date" class="form-control" id="cashDate" name="cashDate" value="" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cashReceived">Cash Amount Received (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="cashReceived" name="cashReceived" value="1215" placeholder="Enter cash amount received" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="changeReturn">Change Return (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="changeReturn" name="changeReturn" value="0.0" required readonly>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cashRemark">Remark (Optinal)</label>
+                        <textarea id="cashRemark" name="cashRemark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>Cheque Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeDate">Cheque Date<i class="ri-asterisk"></i></label>
+                        <input type="date" class="form-control" id="chequeDate" name="chequeDate" value="" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeNo">Cheque Number<i class="ri-asterisk"></i></label>
+                        <input type="text" class="form-control" id="chequeNo" name="chequeNo" placeholder="Enter Cheque Number" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeAmount">Cheque Amount (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="chequeAmount" name="chequeAmount" value="1215" placeholder="Enter Amount on Cheque" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequebankName">Bank Name<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="chequebankName" name="chequebankName" value="" placeholder="Enter Bank Name" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequebranchName">Branch Name<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="chequebranchName" name="chequebranchName" value="" placeholder="Enter Branch Name" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ifscCode">Bank IFSC Code<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="ifscCode" name="ifscCode" value="" placeholder="Enter IFSC Code" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeImage">Upload Cheque Image<i class="ri-asterisk"></i></label>
+                        <input type="file" class="form-control" id="chequeImage" name="chequeImage" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeRemark">Remark (Optinal)</label>
+                        <textarea id="chequeRemark" name="chequeRemark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>Demand Draft Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddDate">Demand Draft Date<i class="ri-asterisk"></i></label>
+                        <input type="date" class="form-control" id="ddDate" name="ddDate" value="" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddNo">Demand Draft Number<i class="ri-asterisk"></i></label>
+                        <input type="text" class="form-control" id="ddNo" name="ddNo" placeholder="Enter DD Number" required>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddAmount">Demand Draft Amount (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="ddAmount" name="ddAmount" value="1215" placeholder="Enter Amount on DD" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddBankName">Issuing Bank Name<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="ddBankName" name="ddBankName" value="" placeholder="Enter issuing Bank Name" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddbranchName">Branch Name<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="ddbranchName" name="ddbranchName" value="" placeholder="Enter Branch Name" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddImage">Upload DD Image<i class="ri-asterisk"></i></label>
+                        <input type="file" class="form-control" id="ddImage" name="ddImage" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddRemark">Remark (Optinal)</label>
+                        <textarea id="ddRemark" name="ddRemark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>UPI Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiDate">UPI Payment Date<i class="ri-asterisk"></i></label>
+                        <input type="date" class="form-control" id="upiDate" name="upiDate" value="" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiTNo">Transaction Reference No<i class="ri-asterisk"></i></label>
+                        <input type="text" class="form-control" id="upiTNo" name="upiTNo" placeholder="Enter Reference Number" required>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiAmount">Amount (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="upiAmount" name="upiAmount" value="1215" placeholder="Enter Amount" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiImage">Upload Image</label>
+                        <input type="file" class="form-control" id="upiImage" name="upiImage">
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiRemark">Remark (Optinal)</label>
+                        <textarea id="upiRemark" name="upiRemark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>NEFT Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftDate">Tansfer Date<i class="ri-asterisk"></i></label>
+                        <input type="date" class="form-control" id="neftDate" name="neftDate" value="" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftTNo">Transaction Reference No.<i class="ri-asterisk"></i></label>
+                        <input type="text" class="form-control" id="neftTNo" name="neftTNo" placeholder="Enter Reference Number" required>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftAmount">Amount (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="neftAmount" name="neftAmount" value="1215" placeholder="Enter Amount" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftBankName">Bank Name<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="neftBankName" name="neftBankName" value="" placeholder="Enter Bank Name" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftImage">Upload Image</label>
+                        <input type="file" class="form-control" id="neftImage" name="neftImage">
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftRemark">Remark (Optinal)</label>
+                        <textarea id="neftRemark" name="neftRemark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-print-none">
+                  <p class="text-center p-3">
+                    <button type="submit" class="btn btn-primary btn-sm mb-1" name="submit"><strong>Submit</strong></button>
+                    <button type="submit" class="btn btn-success btn-sm mb-1" name="submit"><strong>Submit & Print Receipt</strong></button>
+                    <button type="submit" class="btn btn-danger btn-sm mb-1" name="submit"><strong>Cancel</strong></button>
+                  </p>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+
+{% endblock %}

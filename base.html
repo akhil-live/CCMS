@@ -172,18 +172,23 @@
                 <div class="collapse" id="collection">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="#">
+                      <a href="{% url 'collection-new' %}">
                         <span class="sub-item">New Collection</span>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{% url 'collection-history-search' %}">
                         <span class="sub-item">Collection History</span>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{% url 'pending-collection-search' %}">
                         <span class="sub-item">Pending Collection</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'pending-collection-history-search' %}">
+                        <span class="sub-item">Pending Collection History</span>
                       </a>
                     </li>
                     <li>
@@ -218,17 +223,17 @@
                 <div class="collapse" id="receiptManagement">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="#">
+                      <a href="{% url 'receipt-generate' %}">
                         <span class="sub-item">Generate Receipt</span>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{% url 'reprint-receipt' %}">
                         <span class="sub-item">Reprint Receipt</span>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{% url 'receipt-history' %}">
                         <span class="sub-item">Receipt History</span>
                       </a>
                     </li>

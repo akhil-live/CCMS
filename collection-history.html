@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Collection History{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Collection History </h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collections</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collection History</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'collection-history-search' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr><th colspan="6" class="text-center">Basic Details</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr>
+                        <td>Consumer No.</td>
+                        <td class="fw-bold">987654</td>
+                        <td>Consumer Name</td>
+                        <td class="fw-bold">MADHUR MANGAL</td>
+                        <td>Father's Name</td>
+                        <td colspan="3" class="fw-bold">SANJAY MANGAL</td>
+                      </tr>
+                      <tr>
+                        <td>Mobile No.</td>
+                        <td colspan="3" class="fw-bold">9876543210</td>
+                        <td>Email ID</td>
+                        <td colspan="3" class="fw-bold">madhur@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Permanent Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                        <td>Communication Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 class="pb-1"><strong>Current Year Bill Paid Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th colspan="14">Bill Summary (Last Payment)</th>
+                      </tr>
+                      <tr class="text-center">
+                        <th>S.No.</th>
+                        <th>Bill Number</th>
+                        <th>Demand Year</th>
+                        <th>Transaction No. / Receipt No.</th>
+                        <th>Transaction Date</th>
+                        <th>Payment Mode</th>
+                        <th>Payable Amount (₹)</th>
+                        <th>Paid Amount (₹)</th>
+                        <th>Amount Due (₹)</th>
+                        <th>Payment Status</th>
+                        <th>Collected by</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>1.</td>
+                        <td>BILL/74/472148</td>
+                        <td>2026</td>
+                        <td>RCT7220248</td>
+                        <td>24-07-2026</td>
+                        <td>Cash</td>
+                        <td>405</td>
+                        <td>405</td>
+                        <td>0.00</td>
+                        <td><span class="badge badge-success">Paid</span></td>
+                        <td>Ravi Verma (SS-22355)</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td colspan="6" class="fw-bold">Total (₹)</td>
+                        <td class="fw-bold">405</td>
+                        <td class="fw-bold">405</td>
+                        <td class="fw-bold">0.00</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5 class="pb-1"><strong>Previous Years Bill Paid Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th colspan="14">Bill Summary</th>
+                      </tr>
+                      <tr class="text-center">
+                        <th>S.No.</th>
+                        <th>Bill Number</th>
+                        <th>Demand Year</th>
+                        <th>Transaction No. / Receipt No.</th>
+                        <th>Transaction Date</th>
+                        <th>Payment Mode</th>
+                        <th>Payable Amount (₹)</th>
+                        <th>Paid Amount (₹)</th>
+                        <th>Amount Due (₹)</th>
+                        <th>Payment Status</th>
+                        <th>Collected by</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>1.</td>
+                        <td>BILL/74/472147</td>
+                        <td>2025</td>
+                        <td>RCT7220247</td>
+                        <td>24-07-2025</td>
+                        <td>Cash</td>
+                        <td>405</td>
+                        <td>405</td>
+                        <td>0.00</td>
+                        <td><span class="badge badge-success">Paid</span></td>
+                        <td>Rahul Sharma (SS-12345)</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td>1.</td>
+                        <td>BILL/74/472146</td>
+                        <td>2024</td>
+                        <td>RCT7220246</td>
+                        <td>24-07-2024</td>
+                        <td>Cash</td>
+                        <td>405</td>
+                        <td>405</td>
+                        <td>0.00</td>
+                        <td><span class="badge badge-success">Paid</span></td>
+                        <td>Rahul Sharma (SS-12345)</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td colspan="6" class="fw-bold">Total (₹)</td>
+                        <td class="fw-bold">810</td>
+                        <td class="fw-bold">810</td>
+                        <td class="fw-bold">0.00</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+
+{% endblock %}
