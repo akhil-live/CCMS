@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Daily Cash Closing Search{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Daily Cash Closing Search</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collection</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Daily Cash Closing Search</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="card card-stats card-round">  
+          <div class="card-header d-print-none">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="startDate">Start Date <i class="ri-asterisk"></i></label>
+                  <input type="date" class="form-control" id="startDate" name="startDate" value="2026-07-29" required>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="endDate">End Date <i class="ri-asterisk"></i></label>
+                  <input type="date" class="form-control" id="endDate" name="endDate" value="2026-07-29" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-4 text-center">
+                <button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button>
+            </div>
+          </div>                
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+              <div class="d-print-none">
+                <p class="text-start">
+                  <button type="submit" class="btn btn-success btn-sm" name="submit" id="exportExcel" onclick="exportExcel()"><strong><i class="ri-file-excel-line"></i> Export Excel</strong></button>
+                  <button type="submit" class="btn btn-info btn-sm" onclick="printTable('printableArea')"><strong><i class="ri-printer-line"></i> Print</strong></button>
+                </p>
+              </div>
+              <table id="basic-datatables" class="display table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th colspan="8" class="text-center bg-light"><strong>Daily Cash Closing From <span>Date</span> To <span>Date</span></strong></th>
+                  </tr>
+                  <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Opening Cash(₹)</th>
+                    <th>Today's Cash Collection(₹)</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>29-Jul-2026</td>
+                    <td>5000.00</td>
+                    <td>25,000.00</td>
+                    <td>
+                      <span class="badge badge-success">OPEN</span>
+                    </td>
+                    <td class="d-print-none">
+                      <a href="{% url 'daily-cash-closing' %}">
+                        <button type="button" class="btn btn-secondary btn-sm mb-1"><strong>Verify</strong></button>
+                      </a>
+                      <a href="{% url 'daily-cash-closing-view' %}">
+                        <button type="button" class="btn btn-warning btn-sm mb-1"><strong>View</strong></button>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+$(document).ready(function () {
+  $("#basic-datatables").DataTable({});
+
+  $("#multi-filter-select").DataTable({
+    pageLength: 10,
+    initComplete: function () {
+      this.api()
+        .columns()
+        .every(function () {
+          var column = this;
+          var select = $(
+            '<select class="form-select"><option value=""></option></select>'
+          )
+            .appendTo($(column.footer()).empty())
+            .on("change", function () {
+              var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+              column
+                .search(val ? "^" + val + "$" : "", true, false)
+                .draw();
+            });
+
+          column
+            .data()
+            .unique()
+            .sort()
+            .each(function (d, j) {
+              select.append(
+                '<option value="' + d + '">' + d + "</option>"
+              );
+            });
+        });
+    },
+  });
+
+  // Add Row
+  $("#add-row").DataTable({
+    pageLength: 10,
+  });
+});
+
+function exportExcel() {
+        let table = $('#basic-datatables').DataTable();
+        let data = table.rows({ search: 'applied' }).data().toArray();
+        let ws = XLSX.utils.aoa_to_sheet([
+            table.columns().header().toArray().map(th => th.innerText),
+            ...data
+        ]);
+        let wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        XLSX.writeFile(wb, "data.xlsx");
+    }
+</script>
+{% endblock %}

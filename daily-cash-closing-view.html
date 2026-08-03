@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Daily Cash Closing View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Daily Cash Closing View</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collections</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Daily Cash Closing View</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'daily-cash-closing-search' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>            
+          <div class="card-body">
+            <form action="">
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr><th colspan="6" class="text-center">Basic Details</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr>
+                        <td>Date</td>
+                        <td colspan="3" class="fw-bold">29-Jul-2026</td>
+                        <td>Centre</td>
+                        <td colspan="3" class="fw-bold">Jaipur</td>
+                      </tr>
+                      <tr>
+                        <td>Cashier</td>
+                        <td colspan="3" class="fw-bold">Mohit Yadav</td>
+                        <td>Status</td>
+                        <td colspan="3" class="fw-bold text-danger">CLOSED</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>                        
+              </div>
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Daily Cash Closing Detail</strong></h5>
+                  <table class="display table table-bordered table-hover my-4" width="100%">
+                    <tbody>
+                      <tr>
+                        <td class="fw-bold">Opening Cash (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">5000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Today's Cash Collection (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">25,000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold text-primary">Total Cash Available (₹) (OC+TCC)</td>
+                        <td class="text-center text-primary">:</td>
+                        <td class="fw-bold text-end text-primary">30,000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Cash Deposited (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">20000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Expected Cash balance (₹) (TCA-CD)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">10000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Cash Remaining (Physical Count) (₹)</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">10000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold text-warning">Difference (₹)</td>
+                        <td class="text-center text-warning">:</td>
+                        <td class="fw-bold text-end text-warning">0.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Closing Remark</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">Closed Today's Cash Collection</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">Closing Time</td>
+                        <td class="text-center">:</td>
+                        <td class="fw-bold text-end">06:20 PM</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>  
+
+{% endblock %}

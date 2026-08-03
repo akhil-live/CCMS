@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Daily Collection Details{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Daily Collection Details</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Reports</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Daily Collection Details</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'daily-collection-report' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          
+          <div class="card-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr><th colspan="6" class="text-center">Basic Details</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr>
+                        <td>Date</td>
+                        <td colspan="3" class="fw-bold">29-Jul-2026</td>
+                        <td>Day Status</td>
+                        <td colspan="3" class="fw-bold">CLOSED</td>
+                      </tr>
+                      <tr>
+                        <td>No. of Receipts</td>
+                        <td colspan="3" class="fw-bold">10</td>
+                        <td>Total Collections</td>
+                        <td colspan="3" class="fw-bold">30000.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 class="pb-1"><strong>Daily Collection Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th colspan="12">Daily Collection Details Summary</th>
+                      </tr>
+                      <tr class="text-center">
+                        <th>S.No.</th>
+                        <th>Bill Number</th>
+                        <th>Transaction No. / Receipt No.</th>
+                        <th>Consumer No.</th>
+                        <th>Consumer Name</th>
+                        <th>Transaction Date</th>
+                        <th>Payment Mode</th>
+                        <th>Amount (₹)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>1.</td>
+                        <td>BILL/74/472148</td>
+                        <td>RCT7220248</td>
+                        <td>98765</td>
+                        <td>MADHUR MANGAL</td>
+                        <td>24-07-2026</td>
+                        <td>Cash</td>
+                        <td>405</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td>2.</td>
+                        <td>BILL/74/472149</td>
+                        <td>RCT7220249</td>
+                        <td>87699</td>
+                        <td>ROHIT GUPTA</td>
+                        <td>24-07-2026</td>
+                        <td>Cash</td>
+                        <td>405</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td colspan="7" class="fw-bold">Total (₹)</td>
+                        <td class="fw-bold">30000.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

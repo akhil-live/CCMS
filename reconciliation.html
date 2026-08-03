@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Reconciliation{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Reconciliation</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Reports</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'bank-reconciliation' %}">
+            <span class="op-7">Bank Reconciliation</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Reconciliation</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round"> 
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'bank-reconciliation' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>            
+          <div class="card-body">
+            <form action="">
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr><th colspan="6" class="text-center">Basic Details</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr>
+                        <td>Consumer No.</td>
+                        <td class="fw-bold">98765</td>
+                        <td>Consumer Name</td>
+                        <td class="fw-bold">MADHUR MANGAL</td>
+                        <td>Father's Name</td>
+                        <td colspan="3" class="fw-bold">SANJAY MANGAL</td>
+                      </tr>
+                      <tr>
+                        <td>Mobile No.</td>
+                        <td colspan="3" class="fw-bold">9876543210</td>
+                        <td>Email ID</td>
+                        <td colspan="3" class="fw-bold">madhur@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Permanent Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                        <td>Communication Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>                        
+              </div>
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Transaction Detail</strong></h5>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="transactionNo">Transaction No.</label>
+                        <p class="fw-bold">RCT7220248</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="payableAmt">Payable Amount</label>
+                        <p class="fw-bold">405.0</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeNo">DD/Cheque No.</label>
+                        <p class="fw-bold">337437</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeDate">DD/Cheque Date</label>
+                        <p class="fw-bold">July 31, 2026</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="clearanceStatus">Clearance Status<i class="ri-asterisk"></i></label>
+                          <select class="form-select" id="clearanceStatus" name="clearanceStatus">
+                            <option value="">Bounced</option>
+                          </select>    
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="clearanceDate">Clearance Date<i class="ri-asterisk"></i></label>
+                        <input type="date" class="form-control" id="clearanceDate" name="clearanceDate">
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="bouncedChargeAmt">Bounced Charged Amount<i class="ri-asterisk"></i></label>
+                         <input type="text" id="bouncedChargeAmt" name="bouncedChargeAmt" class="form-control" placeholder="Enter Bounced Charged Amount">
+                      </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="uploadImage">Upload Image <i class="ri-asterisk"></i></label>
+                        <input type="file" class="form-control mb-2" id="uploadImage" name="uploadImage">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="yourRemarks">Remarks</label>
+                        <textarea class="form-control" name="yourRemarks" id="yourRemarks" cols="20" rows="3" placeholder="Type your remarks here.."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-print-none">
+                  <p class="text-center pt-3">
+                      <button type="submit" class="btn btn-success btn-sm" name="submit" id="submit"><strong>Save</strong></button>
+                  </p>
+              </div>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+
+{% endblock %}
