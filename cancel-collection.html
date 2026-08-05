@@ -1,0 +1,525 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cancel Collection{% endblock %}
+
+{% block content %}
+<div class="modal fade" id="fileModal" tabindex="-1" >
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">File Preview</h5>
+
+        <div class="btn-group me-2 ms-2">
+          <button id="fullscreenBtn" class="btn btn-sm btn-outline-primary d-none" onclick="toggleFullscreen()">
+            <i class="ri-fullscreen-line"></i>
+          </button>
+        </div>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div id="zoomControls" class="mb-2 text-center d-none">
+          <button class="btn btn-sm btn-info" onclick="zoomIn()"><i class="ri-add-line"></i></button>
+          <button class="btn btn-sm btn-info" onclick="zoomOut()"><i class="ri-subtract-line"></i></button>
+          <button class="btn btn-sm btn-secondary" onclick="resetZoom()">Reset</button>
+        </div>
+
+        <div id="fileContainer"
+            style="width:100%; height:75vh; max-height:calc(100vh - 160px); overflow:auto; text-align:center;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Cancel Collection</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Collections</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'completed-collection-list' %}">
+            <span class="op-7">Completed Collection List</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Cancel Collection</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+          <strong>You can cancel this collection until <span class="text-danger"> 10 Augest 2026, 11:59 PM</span>. After this time, cancellation will no longer be available.</strong>
+        </div>
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+              <a href="{% url 'completed-collection-list' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+         
+          <div class="card-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr><th colspan="6" class="text-center">Basic Details</th>
+                    </tr></thead>
+                    <tbody>
+                      <tr>
+                        <td>Consumer No.</td>
+                        <td class="fw-bold">98765</td>
+                        <td>Consumer Name</td>
+                        <td class="fw-bold">MADHUR MANGAL</td>
+                        <td>Father's Name</td>
+                        <td colspan="3" class="fw-bold">SANJAY MANGAL</td>
+                      </tr>
+                      <tr>
+                        <td>Mobile No.</td>
+                        <td colspan="3" class="fw-bold">9876543210</td>
+                        <td>Email ID</td>
+                        <td colspan="3" class="fw-bold">madhur@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Permanent Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                        <td>Communication Address</td>
+                        <td colspan="3" class="fw-bold">KHAJDO KA BASS MANSAROVAR JAIPUR</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 class="pb-1"><strong>Transaction Details</strong></h5>
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Bill No.</th>
+                        <th>Receipt No.</th>
+                        <th>Paid Amount (₹)</th>
+                        <th>Payment Mode</th>
+                        <th>Transaction Date</th>
+                        <th>Payment Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>BILL/74/472148</td>
+                        <td>RCT7220248</td>
+                        <td>405</td>
+                        <td>Cash</td>
+                        <td>24-07-2026</td>
+                        <td><span class="badge badge-success">Paid</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>Cash Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cashDate">Cash Received Date<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">24-07-2026</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cashReceived">Cash Amount Received (₹)<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">405</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="changeReturn">Change Return (₹)<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">0.00</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cashRemark">Remark (Optinal)</label>
+                        <p class="fw-bold"> </p>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>Cheque Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeDate">Cheque Date<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">24-07-2026</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeNo">Cheque Number<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">72026</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeAmount">Cheque Amount (₹)<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">405</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequebankName">Bank Name<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">State Bank of India</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequebranchName">Branch Name<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">Jaipur</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ifscCode">Bank IFSC Code<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">SBI01234</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeImage">Cheque Image<i class="ri-asterisk"></i></label><br>
+                        <button class="btn btn-info btn-sm" onclick="openModal('image', 'images/documents/sample_image.jpg')">View</button>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="chequeRemark">Remark (Optinal)</label>
+                        <p class="fw-bold"> </p>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>Demand Draft Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddDate">Demand Draft Date<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">24-07-2026</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddNo">Demand Draft Number<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">1234567890000</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddAmount">Demand Draft Amount (₹)<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">405</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddBankName">Issuing Bank Name<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">State Bank of India</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddbranchName">Branch Name<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">Jaipur</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddImage">DD Image<i class="ri-asterisk"></i></label><br>
+                        <button class="btn btn-info btn-sm" onclick="openModal('image', 'images/documents/sample_image.jpg')">View</button>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="ddRemark">Remark (Optinal)</label>
+                        <p class="fw-bold"> </p>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>UPI Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiDate">UPI Payment Date<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">24-07-2026</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiTNo">Transaction Reference No<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">TRN123456879</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiAmount">Amount (₹)<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">405</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiImage">UPI Image</label><br>
+                        <button class="btn btn-info btn-sm" onclick="openModal('image', 'images/documents/sample_image.jpg')">View</button>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="upiRemark">Remark (Optinal)</label>
+                        <p class="fw-bold"> </p>
+                      </div>                 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h5 class="pb-1"><strong>NEFT Details</strong></h5>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftDate">Tansfer Date<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">24-07-2026</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftTNo">Transaction Reference No.<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">TRN1234560</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftAmount">Amount (₹)<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">405</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftBankName">Bank Name<i class="ri-asterisk"></i></label>
+                        <p class="fw-bold">State Bank of India</p>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftImage">Image</label><br>
+                        <button class="btn btn-info btn-sm" onclick="openModal('image', 'images/documents/sample_image.jpg')">View</button>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="neftRemark">Remark (Optinal)</label>
+                        <p class="fw-bold"> </p>
+                      </div>                 
+                    </div>
+                  </div>
+                  <h5 class="pt-1"><strong>Cancellation Details</strong></h5>
+                  <div class="row p-1">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="reason">Cancel Reason<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="reason" name="reason" required>
+                          <option value="">Select Reason</option>
+                          <option value="">Duplicate Collection</option>
+                          <option value="">Wrong Amount</option>
+                          <option value="">Collection Created by Mistake</option>
+                          <option value="">Payment Already Received</option>
+                          <option value="">Consumer Cheque Bounced</option>
+                          <option value="">Consumer Requested Refund</option>
+                          <option value="">Other</option>
+                        </select>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cancelImage">Cancel Image (Optional)</label>
+                        <input type="file" class="form-control" id="cancelImage" name="cancelImage">
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="cancelRemark">Cancel Remark<i class="ri-asterisk"></i></label>
+                        <textarea id="cancelRemark" name="cancelRemark" class="form-control" rows="3" cols="20" placeholder="Type here.." required></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                  <h5 class="pb-1"><strong>Refund Details</strong></h5>
+                  <div class="row p-2">
+                    <div class="form-group">
+                      <p><strong>Refund Required ?</strong></p>
+                      <div class="selectgroup selectgroup-primary selectgroup-pills">
+                        <label class="selectgroup-item">
+                          <input type="radio" name="refund" value="1" class="selectgroup-input" id="check1">
+                          <span class="selectgroup-button" for="check1">Yes</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="radio" name="refund" value="0" class="selectgroup-input" id="check2">
+                          <span class="selectgroup-button" for="check2">No</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row p-1">
+                    <p>If Refund is <strong>Yes</strong></p>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="refundAmount">Refund Amount (₹)<i class="ri-asterisk"></i></label>
+                        <input type="number" class="form-control" id="refundAmount" name="refundAmount" value="405" placeholder="Enter Refund Amount" required>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="refundMode">Refund Mode<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="refundMode" name="refundMode" required>
+                          <option value="">Select Refund Mode</option>
+                          <option value="">Cash</option>
+                          <option value="">Cheque</option>
+                          <option value="">RTGS</option>
+                          <option value="">NEFT</option>
+                          <option value="">UPI</option>
+                        </select>
+                      </div>                 
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <label for="refundRemark">Refund Remark (Optional)</label>
+                        <textarea id="refundRemark" name="refundRemark" class="form-control" rows="3" cols="20" placeholder="Type here.."></textarea>
+                      </div>                 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-print-none">
+                  <p class="text-center p-3">
+                    <button type="submit" class="btn btn-danger btn-sm mb-1" name="submit"><strong>Click to Confirm Cancel</strong></button>
+                  </p>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div> 
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  let scale = 1;
+      const step = 0.2;
+      const minScale = 0.5;
+      const maxScale = 4;
+      let isFullscreen = false;
+
+      function openModal(type, fileUrl) {
+        const container = document.getElementById('fileContainer');
+        const zoomControls = document.getElementById('zoomControls');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        scale = 1;
+        container.innerHTML = '';
+        zoomControls.classList.add('d-none');
+        fullscreenBtn.classList.add('d-none');
+
+        if (type === 'image') {
+          zoomControls.classList.remove('d-none');
+          fullscreenBtn.classList.remove('d-none');
+
+          container.innerHTML = `
+            <img id="previewImage"
+                src="${fileUrl}"
+                class="img-fluid"
+                style="transform:scale(1); transition:transform .15s ease; cursor:zoom-in; user-select: none;">
+          `;
+
+          enableImageInteractions();
+        }
+
+        if (type === 'pdf') {
+          
+          container.innerHTML = `
+            <iframe src="${fileUrl}"
+                    style="width:100%; height:100%; border:none;">
+            </iframe>
+          `;
+        }
+
+        new bootstrap.Modal(document.getElementById('fileModal')).show();
+      }
+
+
+      function zoomIn() {
+        if (scale < maxScale) scale += step;
+        applyZoom();
+      }
+
+      function zoomOut() {
+        if (scale > minScale) scale -= step;
+        applyZoom();
+      }
+
+      function resetZoom() {
+        scale = 1;
+        applyZoom();
+      }
+
+      function applyZoom() {
+        const img = document.getElementById('previewImage');
+        if (img) {
+          img.style.transform = `scale(${scale})`;
+        }
+      }
+
+      function enableImageInteractions() {
+        const img = document.getElementById('previewImage');
+        const container = document.getElementById('fileContainer');
+
+        img.addEventListener('wheel', function (e) {
+          e.preventDefault();
+          e.deltaY < 0 ? zoomIn() : zoomOut();
+        });
+
+        img.addEventListener('dblclick', function () {
+          scale = scale === 1 ? 2 : 1;
+          applyZoom();
+        });
+      }
+
+      function toggleFullscreen() {
+        const modalContent = document.querySelector('#fileModal .modal-content');
+
+        if (!document.fullscreenElement) {
+          modalContent.requestFullscreen();
+          isFullscreen = true;
+        } else {
+          document.exitFullscreen();
+          isFullscreen = false;
+        }
+      }
+
+      document.getElementById('fileModal')
+        .addEventListener('hidden.bs.modal', () => {
+          document.getElementById('fileContainer').innerHTML = '';
+          scale = 1;
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          }
+        });
+</script>
+{% endblock %}
