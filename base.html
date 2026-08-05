@@ -207,8 +207,8 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
-                        <span class="sub-item">Cancel Collection</span>
+                      <a href="{% url 'completed-collection-search' %}">
+                        <span class="sub-item">Completed Collection</span>
                       </a>
                     </li>
                   </ul>
@@ -276,6 +276,11 @@
                     <li>
                       <a href="{% url 'bank-reconciliation' %}">
                         <span class="sub-item">Reconciliation Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'cancel-collection-report %}">
+                        <span class="sub-item">Cancel Collection Report</span>
                       </a>
                     </li>
                   </ul>
